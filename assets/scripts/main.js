@@ -24,7 +24,9 @@ function getRecipesFromStorage() {
 	// A9. TODO - Complete the functionality as described in this function
 	//           header. It is possible in only a single line, but should
 	//           be no more than a few lines.
-	return JSON.parse(localStorage.getItem("recipes"));
+	const recipesArray = JSON.parse(localStorage.getItem("recipes"));
+	if (recipesArray == null) return new Array();
+	return recipesArray;
 }
 
 /**
@@ -35,6 +37,7 @@ function getRecipesFromStorage() {
  * @param {Array<Object>} recipes An array of recipes
  */
 function addRecipesToDocument(recipes) {
+	if (recipes == null) return;
 	// A10. TODO - Get a reference to the <main> element
 	const mainElement = document.querySelector("main");
 	// A11. TODO - Loop through each of the recipes in the passed in array,
